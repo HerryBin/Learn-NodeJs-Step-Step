@@ -57,3 +57,6 @@ log(queryObj);
 log(queryString.escape('鲜荣彬'));
 log(queryString.unescape('%E9%B2%9C%E8%8D%A3%E5%BD%AC'));
 
+
+let urlStr1= queryString.stringify({ foo: 'bar', baz: ['qux', 'quux'], corge: '' });
+console.log(urlStr1);
