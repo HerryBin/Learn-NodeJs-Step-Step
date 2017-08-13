@@ -1,0 +1,36 @@
+//
+   Created by xianrongbin on 2017/8/13.
+
+doctype html
+html
+    head
+        title learn jade
+        meta(http-equiv="Content-Type",content="text/html; charset=utf-8")
+        <!--样式-->
+        style.
+            .fontSize {
+                font-size: 23px;
+                color: blue;
+            }
+        - var course='这是一个变量';
+        body
+            h2 #{course}
+            h1.fontSize jade learn
+            //样式以及id值，这两个值直接放在标签后面
+            div.borderSet#personDiv this is test，
+            input(id='txtName',type='text',value=newData)
+
+            //- 混成文本 签换行后必须打空格 span键盘
+            p
+             | <font color='red'>在P标签换行后必须打空格</font><br>
+             | 第三行 多行文本可以如此使用'|'符号
+
+            //- 安全转义与非转义 ！号对其进行了转义解析
+            - var data='text'
+            - var htmlData='<script>console.log(\'123\')</script><span>script</span>'
+
+            p #{htmlData}
+            p !{htmlData}
+            p=data
+            p!=data
+            p \#{htmlData} 这样可以解决jade引擎对{}的解析
