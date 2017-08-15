@@ -1,0 +1,48 @@
+//
+   Created by xianrongbin on 2017/8/13.
+
+doctype html
+html
+    head
+        title 循环-if-else
+        meta(charset='utf-8')
+        body
+            h1 jade learn
+
+        <!---each 循环获取数据-->
+        - var personList=[ { name: 'jack',age :18 },{ name: 'Tom',age:23 },{ name:'Wolf',age:39}]
+        - var nameList=[]
+        ul
+          - each personItem,key in personList
+
+              li #{personItem.name}年龄#{personItem.age},key值#{key}
+
+        //- do while 循环
+        -var n = 0
+        ul
+            while n < 4
+                li= n++
+
+        //- if
+        if personList.length > 2
+            p #{personList.join(', ')}
+        else if personList.length == 3
+            p 数据太多
+        else
+        p #{personList.length}
+
+        //- unless 反向判断
+        - var isTooOld=false
+        unless isTooOld
+            p #{isTooOld}
+
+        //- case when
+        - var name='bin'
+        case name
+            when 'jack'
+            when 'Tom'
+                p 都是不是我喜欢的名字
+            when 'Lisa'
+                p 这是的喜欢的名字
+            default
+                div #{name}
