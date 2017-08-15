@@ -1,0 +1,44 @@
+//
+   Created by xianrongbin on 2017/8/13.
+doctype html
+html
+    head
+        title learn jade
+        meta(http-equiv="Content-Type",content="text/html; charset=utf-8")
+    body
+        //-Mixins 在编译的模板里会被 Jade 转换为普通的 JavaScript 函数
+
+    //-定义 mixin AName
+
+
+    mixin study(name,lessons)
+        p #{name} 学习了如下课程
+        ul
+            each lesson in lessons
+                li #{lesson}
+    //- 使用加号调用
+    +study('xianrongbin',['英语','物理'])
+
+    <!--- 可以带代码块式的内联调用-->
+    mixin team(arg)
+        h4 #{arg}
+        if block
+            block
+        else
+            p no team
+     +team('good job')
+     p 123
+
+     //-传递属性
+
+    mixin attr(name)
+        //- 这里的！是非转义的意思，不是“不等于”
+        p(class!=attributes.class) #{name}
+    +attr('attr')(class='iiu')
+
+    mixin magic(name, ...items)
+        ul(class='#{name}')
+            each item in items
+                li= item
+    +magic('magic', 'node', 'jade', '..')
+    
