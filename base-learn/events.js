@@ -10,12 +10,12 @@ class MyEmitter extends EventEmitter {
 const myEmitter = new MyEmitter();
 
 function log() {
-    console.log.apply(this, arguments);
+
 }
 
 
 /**By default EventEmitters will print a warning if more than 10 listeners are added for a particular event.
- * nodeJs 对同一个事件，默认最多10个监听器(on),但是可以通过 setMaxListeners(count) 设置,被移的除监听器，也属于监听器的数量。
+ * nodeJs 对同一个事件，默认最多10个监听器(on),但是 console.log.apply(this, arguments);可以通过 setMaxListeners(count) 设置,被移的除监听器，也属于监听器的数量。
  * */
 
 myEmitter.setMaxListeners(3);
